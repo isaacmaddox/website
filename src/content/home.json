@@ -1,0 +1,25 @@
+{
+   "projects": [],
+   "experience": [
+      {
+         "title": "Teacher's Asistant",
+         "company": "University of West Florida",
+         "body": "* Graded student assignments based on instructor-provided rubrics\n* Provided feedback and suggestions for assignments\n* Created and maintained a Python web app (using Flask + Jinja2) with extensive testing, used to facilitate student learning outcomes"
+      },
+      {
+         "title": "User Experience Generalist",
+         "company": "Ducks Unlimited",
+         "body": "* Create and modify web pages on [ducks.org](https://ducks.org) to comply with web standards and serve company interests\n* Analyze user session data to find and eliminate bottlenecks in the user experience on [ducks.org](https://ducks.org), [ag.ducks.org](https://ag.ducks.org), [duckdna.com](https://duckdna.com), and [duckexpo.com](https://duckexpo.com)\n* Lead the design of the DU Mobile App [Play Store](https://play.google.com/store/apps/details?id=org.ducks.android.du.official) / [App Store](https://apps.apple.com/us/app/ducks-unlimited/id563665674), [duckdna.com](https://duckdna.com), [ag.ducks.org](https://ag.ducks.org), [ducon.live](https://ducon.live), and the Waterfowl ID hunting tool\n* Aid in the development of the public-facing portion of [duckdna.com](https://duckdna.com)"
+      },
+      {
+         "title": "Web Development Intern",
+         "company": "Ducks Unlimited",
+         "body": "* Use HTML (templated using Java Server Pages), CSS (SCSS), and JavaScript to build responsive components for use on the [ducks.org](https://ducks.org) website\n* Provide guidance to the Web Development team about modern CSS practices and HTML accessibility standards\n* Implement robust, efficient, and safe client-side JavaScript to handle dynamic data and provide an interactive experience to website users on all devices\n* Lead the development effort of the Ducks Unlimited National Convention app ([ducon.live](https://ducon.live)) utilizing HTML, CSS, and JavaScript"
+      },
+      {
+         "title": "Intern",
+         "company": "Air Force Research Laboratory",
+         "body": "* Created a MATLAB application to control the rotation of multiple polarized lenses and the power state of lasers for testing\n* Created an application using MATLAB to interact with FLIR cameras, take pictures, and store them to the device for data collection\n* Updated an existing application using MATLAB to adjust and automate the rotation of a QPT 90 Positioner"
+      }
+   ]
+}
