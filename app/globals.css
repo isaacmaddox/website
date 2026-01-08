@@ -1,26 +1,82 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+   --font-sans: "Stack Sans Text", system-ui, sans-serif;
+   --font-heading: "Stack Sans Headline", "Times New Roman", serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+   scroll-padding: calc(var(--spacing) * 24);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+   @apply bg-gray-50 min-h-full;
+   @apply dark:bg-gray-900;
+}
+
+@utility typo-jumbo {
+   @apply font-heading text-4xl md:text-6xl font-bold text-black;
+   @apply dark:text-white;
+}
+
+@utility typo-h1 {
+   @apply font-heading text-3xl md:text-4xl font-bold text-black;
+   @apply dark:text-white;
+}
+
+@utility typo-h2 {
+   @apply font-heading text-2xl md:text-3xl font-medium text-gray-800;
+   @apply dark:text-gray-200;
+}
+
+@utility typo-h3 {
+   @apply font-sans text-lg md:text-xl font-normal text-gray-800;
+   @apply dark:text-gray-200;
+}
+
+@utility paragraph {
+   @apply font-sans text-base leading-relaxed text-gray-600;
+   @apply dark:text-gray-400;
+}
+
+@utility link {
+   @apply text-green-800 dark:text-green-300 underline underline-offset-3;
+}
+
+@utility squircle-* {
+   border-radius: calc(--value(--radius- *) * 0.5);
+
+   @supports (corner-shape: squircle) {
+      corner-shape: squircle;
+      border-radius: --value(--radius- *);
+   }
+}
+
+@utility bg-slanted {
+   background-image: linear-gradient(
+         0.375turn,
+         transparent,
+         transparent calc(50% - 1px),
+         var(--tw-gradient-from) 50%,
+         transparent calc(50% + 1px),
+         transparent 100%
+      ),
+      linear-gradient(
+         0.125turn,
+         transparent,
+         transparent calc(50% - 1px),
+         var(--tw-gradient-from) 50%,
+         transparent calc(50% + 1px),
+         transparent 100%
+      );
+   background-size: calc(var(--spacing) * 8);
+   background-position: center;
+}
+
+@utility dashed-border {
+   @apply border-dashed border-gray-300 dark:border-gray-700;
+}
+
+section {
+   @apply p-6 border-b dashed-border;
 }
