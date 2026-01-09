@@ -36,7 +36,7 @@ body {
 
 @utility paragraph {
    @apply font-sans text-base leading-relaxed text-gray-600;
-   @apply dark:text-gray-400;
+   @apply dark:text-gray-300;
 }
 
 @utility link {
@@ -77,6 +77,15 @@ body {
    @apply border-dashed border-gray-300 dark:border-gray-700;
 }
 
-section {
+section,
+main {
    @apply p-6 border-b dashed-border;
+}
+
+main :where(.paragraph + .paragraph) {
+   @apply mt-4;
+}
+
+:is(p, ul) + :is(h1, h2, h3, h4, h5, h6) {
+   @apply mt-6;
 }

@@ -3,13 +3,15 @@ import { Stack_Sans_Headline, Stack_Sans_Text } from "next/font/google";
 import "./globals.css";
 
 const heading = Stack_Sans_Headline({
-   variable: "--font-geist-sans",
+   variable: "--font-stack-sans-headline",
    subsets: ["latin"],
+   fallback: ["serif"],
 });
 
 const body = Stack_Sans_Text({
-   variable: "--font-geist-mono",
+   variable: "--font-stack-sans-text",
    subsets: ["latin"],
+   fallback: ["sans-serif"],
 });
 
 export const metadata: Metadata = {

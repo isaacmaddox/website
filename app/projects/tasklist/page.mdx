@@ -1,0 +1,34 @@
+export const metadata = {
+   title: "TaskList | Isaac Maddox",
+   description: "A simple task tracking app created for a local law firm",
+};
+
+[Home](/)
+
+---
+
+# TaskList
+
+A simple task tracking app created for a local law firm
+
+![A screenshot of the TaskList application](/tasklist-screenshot.png)
+
+---
+
+## The Problem
+
+A local law firm was missing an application that was critical to their everyday function: an app to keep track of their tasks and due dates. After learning more about what they truly needed, I began development work.
+
+## Requirements
+
+The team at the law firm had been using the Outlook To-do feature, and needed a replacement after they lost access to it. After discussing their need a little bit more, we decided on a core set of features:
+
+-  Create, edit, and delete lists
+-  Create, edit, and delete tasks
+-  Tasks would have a name and due date
+-  Lists should be optionally collaborative, allowing multiple people to work on it simultaneously
+-  An option to choose whether updates others made would happen live or not
+
+### My Takeaway
+
+Based on these requirements, I decided on a lightweight React application, that I would build using Vite. To facilitate the live update feature, I settled on [Firebase Realtime Database](https://firebase.google.com/docs/database) (RTDB).

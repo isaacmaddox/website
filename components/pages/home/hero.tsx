@@ -25,6 +25,14 @@ export function HomePageHero() {
             </li>
             <li>
                <a
+                  href="https://github.com/isaacmaddox"
+                  target="_blank"
+                  className="paragraph text-gray-800 dark:text-gray-300 underline underline-offset-3">
+                  GitHub
+               </a>
+            </li>
+            <li>
+               <a
                   href="mailto:isaacmaddox05@gmail.com"
                   className="paragraph text-gray-800 dark:text-gray-300 underline underline-offset-3">
                   Get in Touch
