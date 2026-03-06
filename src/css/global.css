@@ -5,6 +5,11 @@
 
 @import "components/button.css";
 
+::selection {
+   background-color: var(--color-text-link);
+   color: var(--color-surface);
+}
+
 :root {
    --page-padding: 1rem;
    --container-width: 56.25rem;

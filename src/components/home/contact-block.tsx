@@ -1,4 +1,5 @@
 import { Button } from "@/components/button";
+import { SendIcon } from "@/components/icons";
 import "@/css/components/contact-block.css";
 
 export function ContactBlock() {
@@ -36,13 +37,5 @@ export function ContactBlock() {
             </div>
          </form>
       </section>
-   );
-}
-
-function SendIcon() {
-   return (
-      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-         <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" />
-      </svg>
    );
 }

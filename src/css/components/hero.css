@@ -1,0 +1,8 @@
+.hero {
+   & > .hero_ctas {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-block-start: 2rem;
+   }
+}
