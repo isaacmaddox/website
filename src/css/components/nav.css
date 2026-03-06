@@ -1,0 +1,188 @@
+.global-header {
+   --start-opacity: 0;
+   --end-opacity: 0;
+
+   position: sticky;
+   inset-block-start: 0;
+   inset-inline: 0;
+   z-index: var(--z-nav);
+
+   background-image: linear-gradient(
+      0.5turn,
+      hsl(from var(--color-surface) h s l / var(--start-opacity)),
+      hsl(from var(--color-surface) h s l / var(--end-opacity))
+   );
+   backdrop-filter: blur(4px);
+
+   margin-block-end: 3rem;
+   padding-block: 1.25em;
+   border-block-end: 1px solid;
+   border-block-end-color: var(--color-border-on-surface);
+
+   @supports (animation-timeline: scroll()) {
+      animation: --nav-border 1ms linear reverse forwards;
+      margin-block-end: 1.5rem;
+
+      border-block-end-color: transparent;
+
+      animation: --nav-border 1ms linear forwards;
+      animation-timeline: scroll();
+      animation-range: 0 10rem;
+   }
+
+   .global-header_content {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+
+      & a:not(.btn) {
+         color: inherit;
+      }
+
+      .global-header_content_toggle {
+         display: none;
+      }
+
+      .global-header_content_brand {
+         font-size: var(--fs-lg);
+         font-weight: 900;
+         text-decoration: none;
+         color: var(--color-text-heading);
+      }
+
+      .global-header_content_links ul {
+         display: flex;
+         align-items: center;
+         gap: 2rem;
+
+         a {
+            text-decoration: none;
+
+            @media (pointer: fine) {
+               &:hover {
+                  color: var(--color-text-emphasis);
+                  text-decoration: underline;
+               }
+            }
+         }
+      }
+
+      .global-header_content_ctas {
+         margin-inline-start: auto;
+         display: flex;
+         align-items: center;
+         gap: 0.5rem;
+      }
+   }
+
+   @media (width < 62.5rem) {
+      --content-opacity: 0;
+
+      position: fixed;
+      inset: 0;
+      padding-block: 0.5rem 1.5rem;
+      margin-block-end: 0 !important;
+
+      height: var(--mobile-nav-height);
+      overflow: clip;
+
+      display: grid;
+      gap: 2rem;
+      grid-template-rows: var(--mobile-nav-height) 1fr max-content;
+
+      &:has(:not(.global-header_content_toggle):focus),
+      &.open {
+         --content-opacity: 1;
+         --start-opacity: 0.85 !important;
+         --end-opacity: 0.85 !important;
+         backdrop-filter: blur(4px) !important;
+
+         height: auto;
+      }
+
+      & + * {
+         margin-block-start: calc(var(--mobile-nav-height) + 1.5rem);
+      }
+
+      .global-header_content {
+         & > *:not(.global-header_content_brand, .global-header_content_toggle) {
+            opacity: var(--content-opacity);
+            transition: opacity 100ms linear;
+         }
+
+         grid-row: 1 / -1;
+
+         display: grid;
+         grid-template-rows: subgrid;
+         grid-template-columns: 1fr max-content 1fr;
+         justify-items: center;
+
+         width: 100%;
+
+         & > * {
+            grid-column: 1 / -1;
+         }
+
+         .global-header_content_toggle {
+            display: flex;
+            justify-self: end;
+            grid-column: 3;
+            grid-row: 1;
+         }
+
+         .global-header_content_brand {
+            align-self: center;
+            grid-column: 2;
+            grid-row: 1;
+         }
+
+         .global-header_content_links ul {
+            flex-direction: column;
+
+            a {
+               font-size: var(--fs-h3);
+               color: var(--color-text-heading);
+            }
+         }
+
+         .global-header_content_ctas {
+            margin-inline-start: 0;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: center;
+            gap: 1.5rem 2.5rem;
+
+            li:last-child {
+               width: 100%;
+            }
+         }
+      }
+   }
+}
+
+@keyframes --nav-border {
+   from {
+      border-block-end-color: transparent;
+      backdrop-filter: blur(0px);
+      --start-opacity: 0;
+      --end-opacity: 0;
+   }
+
+   to {
+      border-block-end-color: var(--color-border-on-surface);
+      backdrop-filter: blur(4px);
+      --start-opacity: 1;
+      --end-opacity: 0.65;
+   }
+}
+
+@property --end-opacity {
+   syntax: "<number>";
+   inherits: true;
+   initial-value: 0;
+}
+@property --start-opacity {
+   syntax: "<number>";
+   inherits: true;
+   initial-value: 0;
+}

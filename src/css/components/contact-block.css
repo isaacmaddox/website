@@ -1,0 +1,18 @@
+.contact {
+   background-color: var(--color-surface-2);
+   border: 1px solid var(--color-border-on-surface);
+   border-radius: 0.75rem;
+   padding: 4rem;
+   margin-block: 6.25rem;
+
+   @media (width < 56.25rem) {
+      padding-inline: var(--page-padding);
+      max-width: unset;
+      border-radius: 0;
+      border-inline: none;
+   }
+
+   form {
+      margin-block-start: 3rem;
+   }
+}

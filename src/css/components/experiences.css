@@ -1,0 +1,167 @@
+.work-experience {
+   display: grid;
+   grid-template-columns: max-content 1fr;
+   margin-block-start: 3rem;
+   column-gap: 2rem;
+   row-gap: 3rem;
+
+   .work-experience_experience {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: subgrid;
+      row-gap: 1.5rem;
+
+      & > h3 {
+         grid-column: 2;
+      }
+
+      & > * {
+         grid-column: 1 / -1;
+      }
+
+      .position {
+         display: grid;
+         grid-template-columns: subgrid;
+         position: relative;
+         row-gap: 1.25rem;
+
+         @supports (inset-inline: anchor(center)) {
+            &::before {
+               content: "";
+               background-color: var(--color-border-on-surface);
+               position: absolute;
+               position-anchor: --start-date;
+               width: 1px;
+               inset-inline: anchor(center);
+               inset-block: calc(anchor(bottom) + 1.5rem) calc(anchor(top --end-date) + 1.5rem);
+            }
+
+            &:not(:has(.position_end-date))::before {
+               inset-block-end: 0;
+            }
+         }
+
+         & > * {
+            grid-column: 2;
+            margin: 0;
+         }
+
+         & > .text-wrapper {
+            @media (width < 62.5rem), (height < 500px) {
+               &.will-cut-off {
+                  --cut-off-height: 200px;
+                  --mask-opacity: 0;
+
+                  display: grid;
+                  justify-items: start;
+                  grid-template-rows: var(--cut-off-height) max-content;
+                  transition:
+                     --mask-opacity 100ms linear,
+                     --cut-off-height 100ms ease;
+
+                  & > button {
+                     display: block;
+                  }
+
+                  & > p {
+                     --cut-off-height: 100%;
+
+                     mask-image: linear-gradient(
+                        0.5turn,
+                        black,
+                        hsl(0 0 0 / var(--mask-opacity)) var(--cut-off-height)
+                     );
+                  }
+
+                  &.open {
+                     --mask-opacity: 1;
+
+                     grid-template-rows: max-content max-content;
+                     gap: 0.5rem;
+                  }
+               }
+            }
+
+            button {
+               display: none;
+               background: none;
+               border: none;
+               color: var(--color-text-link);
+               font-size: var(--fs-p);
+               padding: 0;
+               z-index: 2;
+               transition: margin-block-start 200ms ease;
+
+               @media (pointer: fine) {
+                  &:hover {
+                     text-underline-offset: 0.125lh;
+                     text-decoration: underline;
+                  }
+               }
+            }
+         }
+
+         & > time,
+         & > .time {
+            grid-column: 1;
+            justify-self: center;
+            font-size: var(--fs-p);
+            color: var(--color-text-normal);
+         }
+
+         .position_start-date {
+            grid-row: 1;
+            anchor-name: --start-date;
+            align-self: center;
+            animation-range: 15vh 25vh;
+         }
+
+         .position_end-date {
+            grid-row: 2;
+            anchor-name: --end-date;
+            align-self: end;
+            animation-range: 25vh 50vh;
+         }
+
+         @media (width < 62.5rem) {
+            & > time,
+            & > .time {
+               text-orientation: sideways;
+               writing-mode: vertical-lr;
+            }
+
+            .position_start-date {
+               grid-row: 1 / 3;
+               align-self: start;
+            }
+
+            .position_end-date {
+               grid-row: 2;
+               align-self: end;
+            }
+         }
+      }
+   }
+}
+
+@property --mask-opacity {
+   syntax: "<number>";
+   inherits: true;
+   initial-value: 0;
+}
+
+@property --cut-off-height {
+   syntax: "<length-percentage>";
+   inherits: true;
+   initial-value: 200px;
+}
+
+@keyframes --open-p {
+   from {
+      height: var(--cut-off-height);
+   }
+
+   to {
+      height: auto;
+   }
+}

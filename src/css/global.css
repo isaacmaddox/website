@@ -1,0 +1,150 @@
+@import "reset.css";
+@import "typography.css";
+@import "colors.css";
+@import "forms.css";
+
+@import "components/button.css";
+
+:root {
+   --page-padding: 1rem;
+   --container-width: 56.25rem;
+   --container-lg-width: 75rem;
+
+   --mobile-nav-height: 4.5rem;
+
+   --z-nav: 10;
+
+   --easing-overshoot: linear(
+      0,
+      0.495 4.9%,
+      0.859 10.3%,
+      1.097 16.3%,
+      1.173 19.6%,
+      1.222 23.1%,
+      1.249 28%,
+      1.24 33.8%,
+      1.209 39.1%,
+      1.08 56.6%,
+      1.024 69%,
+      1.004 80.9%,
+      1
+   );
+}
+
+body,
+html {
+   --solid-line-color: color-mix(in oklch, var(--color-border-on-surface), var(--color-surface) 85%);
+   --dim-line-color: color-mix(in oklch, var(--color-surface), var(--solid-line-color));
+
+   --num-grid-cells: 10;
+   --bg-size-offset: 1.5px;
+
+   @media (width < 56.25rem) {
+      --num-grid-cells: 5;
+      --bg-size-offset: 3px;
+   }
+
+   --background-size: calc(100vw / var(--num-grid-cells) - var(--bg-size-offset));
+
+   background-color: var(--color-surface);
+   background-image:
+      linear-gradient(var(--solid-line-color) 2px, transparent 2px),
+      linear-gradient(90deg, var(--solid-line-color) 2px, transparent 2px),
+      linear-gradient(var(--dim-line-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--dim-line-color) 1px, transparent 1px);
+   background-size:
+      var(--background-size) var(--background-size),
+      var(--background-size) var(--background-size),
+      calc(var(--background-size) / 4) calc(var(--background-size) / 4),
+      calc(var(--background-size) / 4) calc(var(--background-size) / 4);
+   background-position:
+      -2px calc(-2px + var(--background-y-offset)),
+      -2px calc(-2px + var(--background-y-offset)),
+      -1px calc(-1px + var(--background-y-offset)),
+      -1px calc(-1px + var(--background-y-offset));
+   scroll-padding-block-start: 10rem;
+
+   @media (width < 62.5rem) {
+      scroll-padding-block-start: calc(var(--mobile-nav-height) + 2rem);
+   }
+
+   @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+   }
+}
+
+.container {
+   --width: var(--container-width) /* 900px */;
+
+   max-width: min(100% - var(--page-padding) * 2, var(--width));
+   margin-inline: auto;
+
+   &.lg {
+      --width: var(--container-lg-width); /* 1200px */
+   }
+}
+
+svg {
+   [fill],
+   &[fill] {
+      fill: currentColor;
+   }
+
+   [stroke],
+   &[stroke] {
+      stroke: currentColor;
+   }
+}
+
+.divide {
+   width: min(100% - var(--page-padding) * 2, 34.375rem) /* 550px */;
+   margin: 6.25rem /* 100px */ auto;
+
+   gap: 0.5rem;
+
+   &:not(:empty) {
+      display: grid;
+      grid-template-columns: 1fr max-content 1fr;
+      align-items: center;
+
+      .btn {
+         margin-block: -50%;
+         overflow: clip;
+
+         svg {
+            filter: drop-shadow(0 -2rem 0px var(--color-text-emphasis));
+         }
+
+         @media (prefers-reduced-motion: no-preference) {
+            &:hover svg {
+               animation: --arrow-down 500ms var(--easing-overshoot);
+            }
+         }
+      }
+   }
+
+   &::before,
+   &:not(:empty)::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: var(--color-border-on-surface);
+   }
+}
+
+footer {
+   text-align: center;
+   padding-block: 2em;
+}
+
+@keyframes --arrow-down {
+   from {
+      translate: 0;
+      opacity: 1;
+   }
+
+   to {
+      translate: 0 2rem;
+   }
+}

@@ -1,0 +1,24 @@
+:root {
+   color-scheme: light dark;
+
+   --color-surface: light-dark(oklch(96.115% 0.00011 271.152), oklch(15.434% 0.00002 271.152));
+   --color-surface-2: light-dark(oklch(98.212% 0.00011 271.152), oklch(16.842% 0.00002 271.152));
+   --color-surface-3: light-dark(oklch(98.511% 0.00011 271.152), oklch(22.125% 0.00002 271.152));
+   --color-surface-4: light-dark(oklch(100% 0.00011 271.152), oklch(25.645% 0.00003 271.152));
+
+   --color-border-on-surface: light-dark(oklch(82.344% 0.00009 271.152), oklch(32.109% 0.00004 271.152));
+   --color-border-input-focus: light-dark(oklch(62.675% 0.00007 271.152), oklch(51.028% 0.00006 271.152));
+
+   --color-outline: light-dark(oklch(0% 0 0 / 0.1), oklch(100% 0.00011 271.152 / 0.1));
+
+   --color-surface-inverse: light-dark(oklch(15.434% 0.00002 271.152), oklch(96.115% 0.00011 271.152));
+
+   --color-accent: light-dark(oklch(40.096% 0.12756 253.988), oklch(74.736% 0.13627 248.76));
+
+   --color-text-heading: light-dark(oklch(17.764% 0.00002 271.152), oklch(100% 0.00011 271.152));
+   --color-text-emphasis: light-dark(oklch(23.503% 0.00003 271.152), oklch(88.531% 0.0001 271.152));
+   --color-text-normal: light-dark(oklch(32.897% 0.00004 271.152), oklch(72.516% 0.00008 271.152));
+   --color-text-link: light-dark(oklch(40.096% 0.12756 253.988), oklch(74.736% 0.13627 248.76));
+   --color-text-dim: light-dark(oklch(52.926% 0.00006 271.152), oklch(59.987% 0.00007 271.152));
+   --color-text-inverse: light-dark(oklch(100% 0.00011 271.152), oklch(17.764% 0.00002 271.152));
+}

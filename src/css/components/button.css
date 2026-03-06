@@ -1,0 +1,137 @@
+.btn {
+   --bg-normal: var(--color-surface-3);
+   --bg-hover: var(--color-surface-4);
+
+   --color-normal: var(--color-text-heading);
+
+   --fs: var(--fs-sm);
+
+   --px: 1em;
+   --py: 1em;
+
+   --svg-size: 1.25lh;
+
+   @media (prefers-color-scheme: light) {
+      &:not(.primary, .ghost, .outline):hover {
+         box-shadow: 0 5px 10px color-mix(var(--color-surface-inverse), transparent 90%);
+      }
+   }
+
+   &.primary {
+      --bg-normal: var(--color-surface-inverse);
+      --bg-hover: hsl(from var(--bg-normal) h s calc(l - 20));
+      --color-normal: var(--color-text-inverse);
+
+      @media (prefers-color-scheme: light) {
+         --bg-hover: hsl(from var(--bg-normal) h s calc(l + 10));
+      }
+   }
+
+   &.ghost {
+      --bg-normal: transparent;
+      --bg-hover: var(--color-surface-3);
+      --color-normal: var(--color-text-emphasis);
+      --color-hover: var(--color-text-heading);
+   }
+
+   &.outline {
+      --bg-normal: transparent;
+      --bg-hover: var(--color-surface-3);
+      --color-normal: var(--color-text-emphasis);
+      --color-hover: var(--color-text-heading);
+
+      outline: 1px solid var(--color-border-on-surface);
+      outline-offset: -1px;
+   }
+
+   &.icon {
+      --svg-size: 1.5rem;
+   }
+
+   &.lg {
+      --fs: var(--fs-p);
+   }
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.5lh;
+   background-color: var(--bg, var(--bg-normal));
+   color: var(--color, var(--color-normal));
+   border: none;
+   white-space: nowrap;
+   flex: 0;
+
+   font-size: var(--fs);
+   font-weight: 600;
+   line-height: 1;
+   text-decoration: none;
+
+   padding: var(--py) var(--px);
+   border-radius: 100vmax;
+
+   @media (prefers-reduced-motion: no-preference) {
+      transition:
+         background-color 50ms linear,
+         color 50ms linear,
+         gap 100ms ease,
+         box-shadow 100ms linear;
+
+      @media (pointer: fine) and (width >= 62.5rem) {
+         &:not(.icon) {
+            gap: 0;
+
+            &:hover {
+               gap: 0.5lh;
+            }
+         }
+      }
+   }
+
+   @media (pointer: fine) {
+      &:hover {
+         --bg: var(--bg-hover, var(--bg-normal));
+         --color: var(--color-hover, var(--color-normal));
+      }
+   }
+
+   &:focus-visible {
+      --bg: var(--bg-hover, var(--bg-normal));
+      --color: var(--color-hover, var(--color-normal));
+   }
+
+   &:active {
+      --bg: var(--bg-active, var(--bg-hover));
+      --color: var(--color-active, var(--color-hover));
+   }
+
+   &:has(svg) {
+      padding-block: calc(var(--py) - max(0px, (var(--svg-size) - 1lh) / 2));
+
+      &.icon {
+         padding: calc(var(--py) - max(0px, (var(--svg-size) - 1lh) / 2));
+      }
+   }
+
+   &:not(.icon) svg {
+      max-width: unset;
+
+      @media (prefers-reduced-motion: no-preference) and (pointer: fine) and (width >= 62.5rem) {
+         width: 0px;
+         opacity: 0;
+         transition:
+            width 300ms var(--easing-overshoot),
+            opacity 50ms linear;
+
+         :hover > & {
+            width: var(--svg-size);
+            opacity: 1;
+         }
+      }
+   }
+
+   svg {
+      height: var(--svg-size);
+      width: var(--svg-size);
+   }
+}

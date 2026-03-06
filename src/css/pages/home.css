@@ -1,0 +1,135 @@
+.home-hero {
+   --overlap-size: 7rem;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   isolation: isolate;
+
+   & > * {
+      text-align: center;
+   }
+
+   .image-container {
+      mask-image: linear-gradient(0.5turn, black 45%, transparent 90%);
+      z-index: -1;
+      padding: 15px;
+      border-radius: 50%;
+   }
+
+   img {
+      border-radius: 50%;
+      outline: 5px solid var(--color-accent);
+      outline-offset: 10px;
+      width: 250px;
+      height: 250px;
+   }
+
+   h1 {
+      margin-block: calc(var(--overlap-size) * -1) 0;
+   }
+
+   p {
+      text-wrap: balance;
+      margin-block: 1.33em;
+
+      &.text-xl {
+         margin-block: 0.75em 0;
+      }
+   }
+
+   .home-hero_ctas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.875rem;
+   }
+
+   .home-hero_stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem 2rem;
+
+      margin-block-start: 3rem;
+
+      li {
+         display: flex;
+         align-items: center;
+         gap: 0.375lh;
+
+         color: var(--color-text-emphasis);
+
+         @media (pointer: fine) {
+            &.school:hover svg {
+               animation: --throw-cap 1s ease forwards;
+            }
+         }
+      }
+   }
+
+   @media (prefers-reduced-motion: no-preference) {
+      --base-animation-delay: 00ms;
+      --animation-gap: 50ms;
+
+      & > * {
+         opacity: 0;
+         animation: --show 700ms var(--easing-overshoot) forwards;
+      }
+
+      .image-container {
+         animation-delay: var(--base-animation-delay);
+      }
+
+      h1 {
+         animation-delay: calc(var(--base-animation-delay) + var(--animation-gap) * 1);
+      }
+
+      p.text-lg {
+         animation-delay: calc(var(--base-animation-delay) + var(--animation-gap) * 2);
+      }
+
+      p {
+         animation-delay: calc(var(--base-animation-delay) + var(--animation-gap) * 3);
+      }
+
+      .home-hero_ctas {
+         animation-delay: calc(var(--base-animation-delay) + var(--animation-gap) * 4);
+      }
+
+      .home-hero_stats {
+         animation-delay: calc(var(--base-animation-delay) + var(--animation-gap) * 5);
+      }
+   }
+}
+
+@keyframes --throw-cap {
+   0% {
+      translate: 0;
+      rotate: 0;
+   }
+
+   50% {
+      translate: 0 -175%;
+   }
+
+   100% {
+      rotate: 360deg;
+      translate: 0 0;
+   }
+}
+
+@keyframes --show {
+   from {
+      opacity: 0;
+      filter: blur(10px);
+      translate: 0 5rem;
+   }
+
+   to {
+      opacity: 1;
+      translate: 0;
+   }
+}
