@@ -4,6 +4,7 @@
    max-width: min(100% - var(--page-padding) * 2, var(--container-lg-width));
    height: auto;
 
+   background-color: var(--color-surface-4);
    border: 1px solid var(--color-border-on-surface);
    border-radius: 0.75rem;
 
