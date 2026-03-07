@@ -31,12 +31,17 @@ export default function FALAFELPage() {
                </Button.Link>
             </Hero.CTAs>
          </Hero>
-         <Image src={thumbnailPicture} alt="A screenshot from the TaskList application" />
          <div className="divide">
             <Button.Link href="#projects" aria-label="Go to main content" size="icon" variant="outline">
                <DownArrowIcon />
             </Button.Link>
          </div>
+         <Image
+            src={thumbnailPicture}
+            alt="A screenshot from the TaskList application"
+            className="leading-image"
+            loading="eager"
+         />
          <section className="container">
             <h2>Coming soon</h2>
             <p className="text-center">I will be writing about this project in the near future. Stay tuned!</p>

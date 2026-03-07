@@ -22,7 +22,7 @@ export function ProjectsBlock() {
                   View Project
                   <OpenInNewIcon />
                </Button.Link>,
-               <Button.Link variant="outline" href="#" key={2}>
+               <Button.Link variant="outline" href="/projects/falafel" key={2}>
                   Read More
                </Button.Link>,
             ]}
@@ -41,7 +41,7 @@ export function ProjectsBlock() {
                   View Project
                   <OpenInNewIcon />
                </Button.Link>,
-               <Button.Link variant="outline" href="#" key={2}>
+               <Button.Link variant="outline" href="/projects/tasklist" key={2}>
                   Read More
                </Button.Link>,
             ]}
@@ -60,7 +60,7 @@ export function ProjectsBlock() {
                   View Project
                   <OpenInNewIcon />
                </Button.Link>,
-               <Button.Link variant="outline" href="#" key={2}>
+               <Button.Link variant="outline" href="/projects/barricade" key={2}>
                   Read More
                </Button.Link>,
             ]}

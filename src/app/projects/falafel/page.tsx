@@ -1,10 +1,14 @@
-import thumbnailPicture from "@/../public/img/projects/falafel/leading.jpg";
+import coursePageScreenshot from "@/../public/img/projects/falafel/course_page.jpg";
+import sectionPageScreenshot from "@/../public/img/projects/falafel/section_page.jpg";
+import teamBuilderPageScreenshot from "@/../public/img/projects/falafel/team_builder_page.jpg";
+import uploadStudentsModalScreenshot from "@/../public/img/projects/falafel/upload_students_modal.jpg";
 import { Button } from "@/components/button";
+import { Carousel, CarouselSlide } from "@/components/carousel";
 import { Hero } from "@/components/hero";
 import { DownArrowIcon, OpenInNewIcon } from "@/components/icons";
+import "@/css/components/carousel.css";
 import "@/css/pages/project-page.css";
 import { Metadata } from "next";
-import Image from "next/image";
 
 export const metadata: Metadata = {
    title: "FALAFEL | Isaac Maddox",
@@ -31,15 +35,71 @@ export default function FALAFELPage() {
                </Button.Link>
             </Hero.CTAs>
          </Hero>
-         <Image src={thumbnailPicture} alt="A screenshot from the FALAFEL application" />
          <div className="divide">
-            <Button.Link href="#projects" aria-label="Go to main content" size="icon" variant="outline">
+            <Button.Link href="#motivation" aria-label="Go to main content" size="icon" variant="outline">
                <DownArrowIcon />
             </Button.Link>
          </div>
-         <section className="container">
-            <h2>Coming soon</h2>
-            <p className="text-center">I will be writing about this project in the near future. Stay tuned!</p>
+         <Carousel>
+            <CarouselSlide src={coursePageScreenshot} alt="A screenshot of the Course page from FALAFEL" />
+            <CarouselSlide src={sectionPageScreenshot} alt="A screenshot of the Section page from FALAFEL" />
+            <CarouselSlide
+               src={uploadStudentsModalScreenshot}
+               alt="A screenshot of the Upload Students modal from FALAFEL"
+            />
+            <CarouselSlide src={teamBuilderPageScreenshot} alt="A screenshot of the Team Builder page from FALAFEL" />
+         </Carousel>
+         <section className="container sm" id="motivation">
+            <h2>Motivation</h2>
+            <p className="text-lg">Why we created FALAFEL</p>
+            <p>
+               In my last semester in college, I took a Capstone course for which we had to create a semester-long
+               project in a team. Our professor suggested an application to help him keep up with all of his students.
+               He said because of how many courses he taught each semester, it was easy to lose track of this kind of
+               stuff.
+            </p>
+         </section>
+         <section className="container sm">
+            <h2>Technology</h2>
+            <p className="text-lg">What technologies we chose for FALAFEL and why</p>
+            <p>
+               My team was composed of two Cybersecurity majors, a Computer Science major, and myself &mdash; a Software
+               Design and Development major. The Cybersecurity program did not do much in the way of programming, so
+               those two team members were not very comfortable with newer technologies. For this reason, my team opted
+               to do a separated frontend and backend solution. The CS major and I would develop a NextJS application
+               that was primarily frontend, but also allowed for us to have our own server (for security purposes). At
+               the same time, our teammates would develop a REST API using Python and Flask that we would communicate
+               with. For our database, we chose to use PostgreSQL because they had an easy-to-use Docker image that we
+               could set up.
+            </p>
+            <p>
+               Because of the sensitive nature of the data that would be stored in this app, we decided that an
+               offline-first approach would be beneficial. We structured our application to be run entirely by Docker,
+               started with one command. This meant that the user of the app (in this case, our professor), could set up
+               the app anywhere that they wanted (say, a server in their home) and connect securely through that.
+            </p>
+         </section>
+         <section className="container sm">
+            <h2>The App</h2>
+            <p className="text-lg">What FALAFEL does</p>
+            <p>
+               FALAFEL organizes data into four main entities: Courses, Sections, Students, and Teams. Each user can own
+               many Courses, each Course has many Sections and Teams, and each Section can have many Students. Finally,
+               there is the critical relationship: each Team can have many Students.
+            </p>
+            <p>The basic flow of the app is as follows:</p>
+            <ol>
+               <li>Create a Course</li>
+               <li>Create the Sections in the course</li>
+               <li>Upload Students into each Section</li>
+               <li>Create Teams in the Course</li>
+               <li>Put Students on the Teams</li>
+            </ol>
+            <p>
+               Each of these actions can be performed manually, but we also offered some automation. For instance,
+               Students can be uploaded from a CSV file format. To do this, the user has to map their columns to the
+               data that FALAFEL needs to identify each student.
+            </p>
          </section>
       </main>
    );

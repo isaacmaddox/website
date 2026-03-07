@@ -29,9 +29,9 @@ export function About() {
             centered around this.
          </p>
          <p>
-            I like to pay attention to the small details when I am programming. Sometimes a little too much - I think
-            this is at least the 10th version of my personal website that I have designed over the past years. I do
-            believe, however, that this ultimately results in me producing quality work that I can be proud of. I
+            I like to pay attention to the small details when I am programming. Sometimes a little too much &mdash; I
+            think this is at least the 10th version of my personal website that I have designed over the past years. I
+            do believe, however, that this ultimately results in me producing quality work that I can be proud of. I
             understand that sometimes I have to set that part of me aside to deliver a product on time &mdash; I learned
             this especially during my Capstone class.
          </p>

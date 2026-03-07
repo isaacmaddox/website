@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { GlobalNav } from "@/components/nav";
+import { ScrollInterceptor } from "@/components/scroll-interceptor";
 import "@/css/global.css";
 import type { Metadata } from "next";
 import { Playfair_Display, Source_Serif_4 } from "next/font/google";
@@ -28,6 +29,7 @@ export default function RootLayout({
    return (
       <html lang="en" className={`${playfairDisplay.variable} ${sourceSerif4.variable}`} data-scroll-behavior="smooth">
          <body>
+            <ScrollInterceptor />
             <GlobalNav />
             {children}
             <Footer />

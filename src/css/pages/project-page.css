@@ -1,4 +1,4 @@
-.hero + img {
+.leading-image {
    margin: 4rem auto;
 
    max-width: min(100% - var(--page-padding) * 2, var(--container-lg-width));
@@ -18,13 +18,18 @@
 }
 
 .hero,
-.hero + img {
+.hero + .divide,
+.hero + .divide + .carousel-container {
    opacity: 0;
    animation: --show 700ms var(--easing-overshoot) forwards;
 }
 
-.hero + img {
+.hero + .divide {
    animation-delay: 50ms;
+}
+
+.hero + .divide + .carousel-container {
+   animation-delay: 100ms;
 }
 
 @keyframes --show {
@@ -38,4 +43,8 @@
       opacity: 1;
       translate: 0;
    }
+}
+
+section + section {
+   margin-block-start: 6.25rem;
 }

@@ -12,6 +12,7 @@
 
 :root {
    --page-padding: 1rem;
+   --container-sm-width: 43.75rem;
    --container-width: 56.25rem;
    --container-lg-width: 75rem;
 
@@ -86,6 +87,10 @@ html {
 
    &.lg {
       --width: var(--container-lg-width); /* 1200px */
+   }
+
+   &.sm {
+      --width: var(--container-sm-width);
    }
 }
 
