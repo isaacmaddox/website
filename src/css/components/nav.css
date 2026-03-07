@@ -84,7 +84,7 @@
       margin-block-end: 0 !important;
 
       height: var(--mobile-nav-height);
-      overflow: clip;
+      overflow: hidden;
 
       display: grid;
       gap: 2rem;

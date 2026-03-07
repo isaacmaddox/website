@@ -5,6 +5,11 @@ import { BackArrowIcon, ForwardArrowIcon } from "@/components/icons";
 import Image from "next/image";
 import { Children, CSSProperties, useEffect, useRef, useState } from "react";
 
+function isIOS() {
+   if (typeof window === "undefined" || typeof navigator === "undefined") return false;
+   return /iPhone|iPad|iPod/i.test(navigator.userAgent || navigator.platform);
+}
+
 export function Carousel({ children }: React.PropsWithChildren) {
    const carouselRef = useRef<HTMLDivElement>(null);
    const [useReducedMotion, setUseReducedMotion] = useState<boolean>(false);
@@ -22,6 +27,13 @@ export function Carousel({ children }: React.PropsWithChildren) {
       };
    }, []);
 
+   function scroll(direction: "forwards" | "backwards") {
+      carouselRef.current?.scrollBy({
+         left: (carouselRef.current?.clientWidth + 16) * (direction === "backwards" ? -1 : 1),
+         behavior: useReducedMotion ? "instant" : "smooth",
+      });
+   }
+
    return (
       <section
          className="carousel-container container lg"
@@ -30,9 +42,7 @@ export function Carousel({ children }: React.PropsWithChildren) {
             className="carousel-container_back-button"
             size="icon"
             variant="outline"
-            onClick={() =>
-               carouselRef.current?.scrollBy({ left: -10, behavior: useReducedMotion ? "instant" : "smooth" })
-            }
+            onClick={() => scroll("backwards")}
             aria-label="Go to previous image">
             <BackArrowIcon />
          </Button>
@@ -40,9 +50,7 @@ export function Carousel({ children }: React.PropsWithChildren) {
             className="carousel-container_forward-button"
             size="icon"
             variant="outline"
-            onClick={() =>
-               carouselRef.current?.scrollBy({ left: 10, behavior: useReducedMotion ? "instant" : "smooth" })
-            }
+            onClick={() => scroll("forwards")}
             aria-label="Go to next image">
             <ForwardArrowIcon />
          </Button>
