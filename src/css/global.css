@@ -18,6 +18,7 @@
 
    --mobile-nav-height: 4.5rem;
 
+   --z-modal: 20;
    --z-nav: 10;
 
    --easing-overshoot: linear(
@@ -69,6 +70,8 @@ html {
       -1px calc(-1px + var(--background-y-offset)),
       -1px calc(-1px + var(--background-y-offset));
    scroll-padding-block-start: 10rem;
+
+   scrollbar-gutter: stable;
 
    @media (width < 62.5rem) {
       scroll-padding-block-start: calc(var(--mobile-nav-height) + 2rem);
@@ -122,12 +125,12 @@ svg {
          overflow: clip;
 
          svg {
-            filter: drop-shadow(0 -2rem 0px var(--color-text-emphasis));
+            filter: drop-shadow(0 -2.5rem 0px var(--color-text-emphasis));
          }
 
          @media (prefers-reduced-motion: no-preference) {
             &:hover svg {
-               animation: --arrow-down 500ms var(--easing-overshoot);
+               animation: --arrow-down 800ms var(--easing-overshoot);
             }
          }
       }
@@ -143,6 +146,68 @@ svg {
    }
 }
 
+.code-block {
+   padding-block: 0 0 1rem 0;
+   margin-block: 2rem !important;
+   background-color: var(--color-surface-2) !important;
+   border: 1px solid var(--color-border-on-surface);
+   border-radius: 0.75rem;
+   overflow: clip;
+   position: relative;
+
+   &.will-cutoff:not(.open) {
+      & > pre {
+         height: 18.75rem;
+         mask-image: linear-gradient(0.5turn, black 10rem, transparent 18.75rem);
+      }
+
+      & > pre {
+         overflow: hidden !important;
+         z-index: 1;
+      }
+   }
+
+   & > footer {
+      display: grid;
+      padding: 0.5rem;
+      background-color: var(--color-surface-2);
+      border-block-start: 1px solid var(--color-border-on-surface);
+
+      .open & {
+         position: sticky;
+         bottom: 0;
+      }
+   }
+
+   & header {
+      margin-block-end: 1rem;
+      padding: 0.5rem 1rem;
+      border-block-end: 1px solid var(--color-border-on-surface);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      & > p {
+         font-size: var(--fs-sm);
+      }
+
+      & > button {
+         margin-inline-start: auto;
+      }
+   }
+
+   & > pre {
+      padding-block: 0 !important;
+      margin: 0 !important;
+   }
+
+   & > pre,
+   & > pre * {
+      background-color: transparent !important;
+      line-height: 1.75 !important;
+   }
+}
+
 footer {
    text-align: center;
    padding-block: 2em;
@@ -155,6 +220,6 @@ footer {
    }
 
    to {
-      translate: 0 2rem;
+      translate: 0 2.5rem;
    }
 }

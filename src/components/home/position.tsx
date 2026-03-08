@@ -36,7 +36,7 @@ export function Position({
 
    function calculateHeight() {
       if (!wrapperRef.current) return;
-      setWillTextCutoff(wrapperRef.current.scrollHeight > 200);
+      setWillTextCutoff(wrapperRef.current.clientHeight > 200);
    }
 
    useEffect(() => {

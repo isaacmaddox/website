@@ -2,8 +2,9 @@
 
 import { Button } from "@/components/button";
 import { BackArrowIcon, ForwardArrowIcon } from "@/components/icons";
+import { useMedia } from "@/lib/hooks/useMedia";
 import Image from "next/image";
-import { Children, CSSProperties, useEffect, useRef, useState } from "react";
+import { Children, CSSProperties, useRef } from "react";
 
 function isIOS() {
    if (typeof window === "undefined" || typeof navigator === "undefined") return false;
@@ -12,24 +13,15 @@ function isIOS() {
 
 export function Carousel({ children }: React.PropsWithChildren) {
    const carouselRef = useRef<HTMLDivElement>(null);
-   const [useReducedMotion, setUseReducedMotion] = useState<boolean>(false);
-
-   useEffect(() => {
-      if (typeof window === undefined) return;
-      const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-      const handleChange = (ev: MediaQueryListEvent) => setUseReducedMotion(ev.matches);
-
-      query.addEventListener("change", handleChange);
-
-      return () => {
-         query.removeEventListener("change", handleChange);
-      };
-   }, []);
+   const useReducedMotion = useMedia("(prefers-reduced-motion: reduce)");
 
    function scroll(direction: "forwards" | "backwards") {
+      if (!carouselRef.current) return;
+
+      const gap = Number(getComputedStyle(carouselRef.current).gap.replace("px", ""));
+
       carouselRef.current?.scrollBy({
-         left: (carouselRef.current?.clientWidth + 16) * (direction === "backwards" ? -1 : 1),
+         left: (carouselRef.current?.clientWidth + gap) * (direction === "backwards" ? -1 : 1),
          behavior: useReducedMotion ? "instant" : "smooth",
       });
    }

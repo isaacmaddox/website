@@ -42,6 +42,7 @@
       &::before {
          --completion-percentage: 0%;
          --rounding-interval: calc(100% / var(--number-of-slides, 100));
+         --gradient-stop: round(up, max(var(--completion-percentage), 1%), var(--rounding-interval));
 
          content: "";
          display: block;
@@ -64,8 +65,8 @@
 
          background-image: linear-gradient(
             0.25turn,
-            var(--color-surface-inverse) round(up, max(var(--completion-percentage), 1%), var(--rounding-interval)),
-            var(--color-border-on-surface) round(up, max(var(--completion-percentage), 1%), var(--rounding-interval))
+            var(--color-surface-inverse) var(--gradient-stop),
+            var(--color-border-on-surface) var(--gradient-stop)
          );
       }
 

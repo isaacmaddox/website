@@ -62,9 +62,9 @@
 
          color: var(--color-text-emphasis);
 
-         @media (pointer: fine) {
+         @media (prefers-reduced-motion: no-preference) and (pointer: fine) {
             &.school:hover svg {
-               animation: --throw-cap 1s ease forwards;
+               animation: --throw-cap 1s forwards;
             }
          }
       }
@@ -109,10 +109,12 @@
    0% {
       translate: 0;
       rotate: 0;
+      animation-timing-function: ease-out;
    }
 
    50% {
       translate: 0 -175%;
+      animation-timing-function: cubic-bezier(0.68, 0.1, 0.265, 1.55);
    }
 
    100% {

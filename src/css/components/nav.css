@@ -98,6 +98,8 @@
          backdrop-filter: blur(4px) !important;
 
          height: auto;
+         overflow: auto;
+         overscroll-behavior: contain;
       }
 
       & + * {

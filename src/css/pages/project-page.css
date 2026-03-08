@@ -19,7 +19,7 @@
 
 .hero,
 .hero + .divide,
-.hero + .divide + .carousel-container {
+.hero + .divide + * {
    opacity: 0;
    animation: --show 700ms var(--easing-overshoot) forwards;
 }
@@ -28,7 +28,7 @@
    animation-delay: 50ms;
 }
 
-.hero + .divide + .carousel-container {
+.hero + .divide + * {
    animation-delay: 100ms;
 }
 
@@ -47,4 +47,23 @@
 
 section + section {
    margin-block-start: 6.25rem;
+}
+
+figure {
+   padding-block: 0.5rem 0.75rem;
+   border-block-end: 1px solid var(--color-border-on-surface);
+   margin-block: 3rem;
+
+   & > img,
+   & > .image-modal-wrapper > img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.75rem;
+      border: 1px solid var(--color-border-on-surface);
+   }
+
+   & > figcaption {
+      margin-block-start: 0.75rem;
+      font-style: italic;
+   }
 }
