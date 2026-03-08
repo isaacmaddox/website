@@ -49,8 +49,11 @@
 
       &.sm {
          --svg-size: 1.5rem;
-         --py: 0.625rem;
       }
+   }
+
+   &.sm {
+      --py: 0.625rem;
    }
 
    &.lg {

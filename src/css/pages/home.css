@@ -126,7 +126,6 @@
 @keyframes --show {
    from {
       opacity: 0;
-      filter: blur(10px);
       translate: 0 5rem;
    }
 

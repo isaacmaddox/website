@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/button";
-import { CheckIcon, ContentCopyIcon } from "@/components/icons";
+import { CheckIcon, ContentCopyIcon, GitHubLogo, KeyboardArrowDownIcon } from "@/components/icons";
 import { useMedia } from "@/lib/hooks/useMedia";
 import { cn } from "@/utils";
 import { useEffect, useRef, useState } from "react";
@@ -11,10 +11,11 @@ import { oneDark, oneLight } from "react-syntax-highlighter/dist/esm/styles/pris
 interface CodeBlockProps {
    language: string;
    file?: string;
+   fileLink?: string;
    children: string;
 }
 
-export function CodeBlock({ language, file, children }: CodeBlockProps) {
+export function CodeBlock({ language, file, fileLink, children }: CodeBlockProps) {
    const isLight = useMedia("(prefers-color-scheme: light)");
    const [isCopied, setIsCopied] = useState(false);
    const [isOpen, setIsOpen] = useState(false);
@@ -28,8 +29,12 @@ export function CodeBlock({ language, file, children }: CodeBlockProps) {
    }
 
    function copyText() {
-      navigator.clipboard.writeText(children);
-      setIsCopied(true);
+      try {
+         navigator.clipboard.writeText(children);
+         setIsCopied(true);
+      } catch {
+         alert("Unable to copy to your clipboard");
+      }
    }
 
    function calculateHeight() {
@@ -53,6 +58,16 @@ export function CodeBlock({ language, file, children }: CodeBlockProps) {
             <Button variant="ghost" size="icon sm" aria-label="Copy code text" onClick={copyText}>
                {!isCopied ? <ContentCopyIcon /> : <CheckIcon />}
             </Button>
+            {fileLink && (
+               <Button.Link
+                  variant="ghost"
+                  size="icon sm"
+                  href={fileLink}
+                  target="_blank"
+                  aria-label="Open file in GitHub">
+                  <GitHubLogo />
+               </Button.Link>
+            )}
          </header>
          <SyntaxHighlighter language={language} style={isLight ? oneLight : oneDark} codeTagProps={{ ref: preRef }}>
             {children}
@@ -61,6 +76,7 @@ export function CodeBlock({ language, file, children }: CodeBlockProps) {
             <footer>
                <Button variant="ghost" onClick={() => setIsOpen(!isOpen)}>
                   {isOpen ? "Collapse Code Block" : "Expand Code Block"}
+                  <KeyboardArrowDownIcon />
                </Button>
             </footer>
          )}

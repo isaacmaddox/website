@@ -3,7 +3,7 @@ import React from "react";
 
 type ButtonProps = {
    variant?: "primary" | "outline" | "ghost" | "default";
-   size?: "icon" | "icon sm" | "lg" | "default";
+   size?: "icon" | "icon sm" | "sm" | "lg" | "default";
 };
 
 export function Button({ variant, size, className, ...props }: ButtonProps & React.ComponentProps<"button">) {

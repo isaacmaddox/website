@@ -10,6 +10,7 @@ import { DownArrowIcon, OpenInNewIcon } from "@/components/icons";
 import { ImageModal } from "@/components/image-modal";
 import "@/css/components/carousel.css";
 import "@/css/pages/project-page.css";
+import { getSnippet } from "@/lib/getSnippet";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
       "FALAFEL is a CRM-like program that was designed to help one of my professors pair students into teams for his courses.",
 };
 
-export default function FALAFELPage() {
+export default async function FALAFELPage() {
    return (
       <main id="top">
          <Hero>
@@ -122,161 +123,40 @@ export default function FALAFELPage() {
                <a href="https://github.com/isaacmaddox/falafel/tree/main/client" target="_blank">
                   front-end portion
                </a>{" "}
-               of FALAFEL is a NextJS application.
+               of FALAFEL is a NextJS application. We utilized{" "}
+               <a href="https://ui.shadcn.com/" target="_blank">
+                  ShadCN UI
+               </a>{" "}
+               for the UI elements to allow for rapid-paced progress of the client-facing application.
             </p>
-            <CodeBlock language="css" file="carousel.css">
-               {`.carousel-container {
-   display: grid;
-   grid-template-columns: 1fr max-content max-content calc(5% - 0.5rem);
-   grid-template-rows: max-content max-content;
-   gap: 0.5rem;
-   position: relative;
-
-   @media (width < 56.25rem) {
-      grid-template-columns: 1fr max-content max-content;
-   }
-
-   & > .carousel {
-      grid-column: 1 / -1;
-   }
-
-   & > button {
-      grid-row: 2;
-   }
-
-   & > .carousel-container_back-button {
-      anchor-name: --back-button;
-      grid-column: 2;
-   }
-
-   & > .carousel-container_forward-button {
-      grid-column: 3;
-   }
-}
-
-.carousel {
-   display: flex;
-   gap: 1rem;
-   overflow: auto;
-   padding-block-end: 0.5rem;
-   scroll-snap-type: x mandatory;
-   scroll-timeline: --carousel;
-   scroll-timeline-axis: inline;
-
-   scrollbar-width: none;
-
-   @supports (animation-timeline: --carousel) {
-      &::before {
-         --completion-percentage: 0%;
-         --rounding-interval: calc(100% / var(--number-of-slides, 100));
-
-         content: "";
-         display: block;
-         position: absolute;
-         position-anchor: --back-button;
-         inset-inline: 5% calc(anchor(start) + 1rem);
-         inset-block: anchor(center);
-         height: 0.5rem;
-         width: min(calc(2rem * var(--number-of-slides)), 100%);
-
-         mask-image: linear-gradient(0.25turn, black calc(100% - 0.25rem), transparent calc(100% - 0.25rem));
-         mask-size: var(--rounding-interval);
-
-         animation: --completion 1ms linear forwards;
-         animation-timeline: --carousel;
-
-         @media (width < 56.25rem) {
-            inset-inline-start: 0;
-         }
-
-         background-image: linear-gradient(
-            0.25turn,
-            var(--color-surface-inverse) round(up, max(var(--completion-percentage), 1%), var(--rounding-interval)),
-            var(--color-border-on-surface) round(up, max(var(--completion-percentage), 1%), var(--rounding-interval))
-         );
-      }
-
-      &::-webkit-scrollbar {
-         display: none;
-      }
-   }
-
-   @media (width < 56.25rem) {
-      mask-image: none;
-   }
-
-   & > .carousel_slide {
-      flex: 0 0 auto;
-      width: 90%;
-      border: 1px solid var(--color-border-on-surface);
-      overflow: hidden;
-      border-radius: 0.75rem;
-      scroll-snap-align: center;
-      scroll-snap-stop: always;
-      display: grid;
-
-      background-color: var(--color-surface-2);
-
-      @supports (animation-timeline: scroll()) {
-         animation: --slide-border 1ms linear;
-         animation-timeline: view(inline);
-         animation-range: cover;
-      }
-
-      & > p {
-         margin: 0.5rem;
-      }
-
-      & > img {
-         width: 100%;
-         height: auto;
-         max-width: unset;
-      }
-
-      @media (width >= 56.25rem) {
-         &:first-child {
-            margin-inline-start: 5%;
-         }
-
-         &:last-child {
-            margin-inline-end: 5%;
-         }
-      }
-
-      @media (width < 56.25rem) {
-         width: 100%;
-      }
-   }
-}
-
-@keyframes --slide-border {
-   29.9%,
-   70.1% {
-      border-color: var(--color-border-on-surface);
-   }
-
-   30%,
-   70% {
-      border-color: var(--color-border-input-focus);
-   }
-}
-
-@property --completion-percentage {
-   syntax: "<percentage>";
-   inherits: true;
-   initial-value: 0%;
-}
-
-@keyframes --completion {
-   from {
-      --completion-percentage: 0%;
-   }
-
-   to {
-      --completion-percentage: 100%;
-   }
-}
-`}
+            <p>
+               As mentioned previously, FALAFEL&apos;s NextJS application makes calls to a REST API built on Flask. To
+               handle these operations in a type-safe manner and handle errors, I implemented a functional approach to
+               do so. Below is a brief overview of each and how they are used in practice.
+            </p>
+            <h4>The tryCatch function</h4>
+            <CodeBlock
+               language="ts"
+               file="client/src/lib/utils.ts"
+               fileLink="https://github.com/isaacmaddox/falafel/blob/main/client/src/lib/utils.ts#L102">
+               {await getSnippet("tryCatch.ts")}
+            </CodeBlock>
+            <p>
+               The <code>tryCatch()</code> method is simply a function wrapper to handle a Promise, whether it resolves
+               or rejects. In practice, it is only used in a few places (functions that are in turn called
+               repetitively). There is a weird bit of code in here: <code>if (isRedirectError(e)) throw e;</code>. It
+               feels a bit unnatural to throw an error in a <code>catch</code> block, but this is actually how NextJS
+               handles navigation. This function is called on the server, so if a function uses the{" "}
+               <code>navigate()</code> function from <code>next/navigation</code>, then an error is thrown. Other than
+               this minor quirk, this function is pretty straightforward, but plays a vital role in the machine.
+            </p>
+            <h4>The formAction function</h4>
+            <p className="text-lg">And related types</p>
+            <CodeBlock
+               language="ts"
+               file="client/src/lib/utils.ts"
+               fileLink="https://github.com/isaacmaddox/falafel/blob/main/client/src/lib/utils.ts#L140">
+               {await getSnippet("formAction.ts")}
             </CodeBlock>
          </section>
       </main>

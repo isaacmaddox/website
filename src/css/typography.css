@@ -19,6 +19,10 @@
    --fw-h3: 700;
    --lh-h3: 120%;
 
+   --fs-h4: 1.625rem;
+   --fw-h4: 600;
+   --lh-h4: 120%;
+
    --fs-xl: 2rem;
    --fw-xl: 500;
    --lh-xl: 120%;
@@ -52,7 +56,8 @@
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
    font-family: var(--ff-heading);
    color: var(--color-text-heading);
 }
@@ -76,6 +81,13 @@ h3,
    font-size: var(--fs-h3);
    font-weight: var(--fw-h3);
    line-height: var(--lh-h3);
+}
+
+h4,
+.text-h4 {
+   font-size: var(--fs-h4);
+   font-weight: var(--fw-h4);
+   line-height: var(--lh-h4);
 }
 
 .text-jumbo {
