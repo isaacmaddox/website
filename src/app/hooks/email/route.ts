@@ -28,6 +28,7 @@ export const POST = async (request: NextRequest) => {
          emailId: event.data.email_id,
          to: process.env.EMAIL,
          from: process.env.CONF_FROM_EMAIL,
+         text: `To reply, email ${event.data.from}\n---\n`,
       });
 
       if (error) {
