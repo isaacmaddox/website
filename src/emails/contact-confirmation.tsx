@@ -102,7 +102,7 @@ const heading = {
 } as CSSProperties;
 
 const paragraph = {
-   fontFamily: "Source Serif 4, Georgia",
+   fontFamily: '"Source Serif 4", Georgia',
    color: "#a6a6a6",
    lineHeight: "170%",
    fontSize: "16px",
