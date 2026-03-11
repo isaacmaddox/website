@@ -58,7 +58,8 @@ export async function sendContactEmail(_: unknown, formData: FormData): Promise<
 
    try {
       const { error } = await resend.emails.send({
-         from: `Contact Form <${email}>`,
+         from: `Contact Form <contact@mail.isaacmaddox.dev>`,
+         replyTo: email,
          to: [process.env.EMAIL],
          subject: topic,
          text: message,
