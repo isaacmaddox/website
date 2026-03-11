@@ -45,7 +45,7 @@ export function ContactConfirmationEmail({ message, topic }: ContactConfirmation
                fontStyle="normal"
             />
          </Head>
-         <Body>
+         <Body style={{ backgroundColor: "#0c0c0c", color: "white" }}>
             <Preview>I have received your message and will get back to you as soon as possible.</Preview>
             <Section style={{ marginTop: "40px", marginBottom: "16px", paddingLeft: "16px", paddingRight: "16px" }}>
                <Row style={{ marginBottom: "8px" }}>
