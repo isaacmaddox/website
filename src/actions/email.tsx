@@ -1,10 +1,8 @@
 "use server";
 
 import { ContactConfirmationEmail } from "@/emails/contact-confirmation";
-import { Resend } from "resend";
+import { resend } from "@/lib/resend";
 import z from "zod";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 const contactEmailFormSchema = z.object({
    email: z.email("Please enter a valid email"),
