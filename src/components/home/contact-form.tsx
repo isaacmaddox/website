@@ -57,7 +57,7 @@ export function ContactForm() {
                <SendIcon />
             </Button>
          </div>
-         {formState?.success === false && (
+         {formState?.success === false && !formState.errors && (
             <p className="text-error">Something went wrong while sending your email. Please email me directly.</p>
          )}
       </form>
