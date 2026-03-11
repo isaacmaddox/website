@@ -1,5 +1,6 @@
 "use server";
 
+import { ContactConfirmationEmail } from "@/emails/contact-confirmation";
 import { Resend } from "resend";
 import z from "zod";
 
@@ -75,7 +76,7 @@ export async function sendContactEmail(_: unknown, formData: FormData): Promise<
          from: `Isaac Maddox <${process.env.CONF_FROM_EMAIL}>`,
          to: [email],
          subject: "Thank you for reaching out",
-         text: "Thank you for filling out my contact form. I will reply as soon as I am able to.",
+         react: <ContactConfirmationEmail message={message} topic={topic} />,
       });
 
       return {
