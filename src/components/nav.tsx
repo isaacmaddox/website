@@ -68,7 +68,7 @@ export function GlobalNav() {
                   </Button.Link>
                </li>
                <li>
-                  <Button.Link href="mailto:isaac@isaacmaddox.dev" variant="primary">
+                  <Button.Link href="mailto:isaac@mail.isaacmaddox.dev" variant="primary">
                      <MailIcon />
                      Get in Touch
                   </Button.Link>
