@@ -21,6 +21,7 @@ export function CodeBlock({ language, file, fileLink, children }: CodeBlockProps
    const [isOpen, setIsOpen] = useState(false);
    const [willTextCutoff, setWillTextCutoff] = useState(false);
    const preRef = useRef<HTMLPreElement>(null);
+   const isMounted = useRef(false);
 
    if (isCopied) {
       setTimeout(() => {
@@ -50,6 +51,21 @@ export function CodeBlock({ language, file, fileLink, children }: CodeBlockProps
          window.removeEventListener("resize", calculateHeight);
       };
    }, [preRef, children]);
+
+   useEffect(() => {
+      if (!isMounted.current) {
+         isMounted.current = true;
+         return;
+      }
+
+      if (!isOpen) {
+         preRef.current?.parentElement?.scrollIntoView({
+            behavior: "instant",
+            block: "start",
+            inline: "nearest",
+         });
+      }
+   }, [isOpen]);
 
    return (
       <div className={cn("code-block", willTextCutoff && "will-cutoff", isOpen && "open")}>

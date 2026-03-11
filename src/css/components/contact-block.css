@@ -15,4 +15,13 @@
    form {
       margin-block-start: 3rem;
    }
+
+   & .contact_confirmation {
+      margin-block-start: 3rem;
+      text-align: center;
+
+      & > p {
+         text-wrap: balance;
+      }
+   }
 }

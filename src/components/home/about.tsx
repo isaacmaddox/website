@@ -1,6 +1,6 @@
 export function About() {
    return (
-      <section className="container">
+      <section className="container sm">
          <h2>About Me</h2>
          <p className="text-lg">Thanks for making it this far down the page!</p>
          <p>

@@ -175,6 +175,11 @@ section > h2 + p.text-lg + p {
    margin-block-start: 3rem;
 }
 
+.text-danger,
+.text-error {
+   color: var(--color-text-danger);
+}
+
 .text-center {
    text-align: center;
 }
