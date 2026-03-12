@@ -22,7 +22,7 @@ export function ExperienceBlock() {
                      <a href="https://afrlscholars.usra.edu/" target="_blank">
                         Air Force Research Laboratory Scholars program
                      </a>
-                     , I worked with a team responsbile for LiDAR research. I rewrote some existing applications,
+                     , I worked with a team respobsible for LiDAR research. I rewrote some existing applications,
                      migrating them from Python to MATLAB, using the MATLAB App Designer. I created an app to interact
                      with a FLIR camera and a lens rotator, to capture and store photos for research. I also built an
                      app that was responsible for managing the power state of a laser, as well as the rotation state of
@@ -37,9 +37,9 @@ export function ExperienceBlock() {
             </div>
             <div className="work-experience_experience">
                <h3>Ducks Unlimited</h3>
-               <Position title="Web Devleopment Intern" startDateText="Jan. 2023" startDateTimeStamp="2023-01-13">
+               <Position title="Web Development Intern" startDateText="Jan. 2023" startDateTimeStamp="2023-01-13">
                   <p>
-                     In January of 2023, I was brought on as an intern to the web develoment team to assist in a full
+                     In January of 2023, I was brought on as an intern to the web development team to assist in a full
                      rewrite of the website, migrating to a new CMS. During this internship, I learned many invaluable
                      skills that will undoubtedly help me throughout my career. I learned how to effectively use Git and
                      GitHub to work collaboratively on a project, how a CMS works, Java Server Pages, and gained
@@ -52,7 +52,7 @@ export function ExperienceBlock() {
                   startDateTimeStamp="2023-07-01"
                   isPresent>
                   <p>
-                     As a result of the work completed for the MARCOMMS team during my time as a Web Devleopment Intern,
+                     As a result of the work completed for the MARCOMMS team during my time as a Web Development Intern,
                      I was hired as a User Experience Generalist at the same company. In this role, I am responsible for
                      designing components and pages for use on the{" "}
                      <a href="https://ducks.org" target="_blank">

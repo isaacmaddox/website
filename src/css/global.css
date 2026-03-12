@@ -44,14 +44,12 @@ html {
    --dim-line-color: color-mix(in oklch, var(--color-surface), var(--solid-line-color));
 
    --num-grid-cells: 10;
-   --bg-size-offset: 1.5px;
 
    @media (width < 56.25rem) {
       --num-grid-cells: 5;
-      --bg-size-offset: 3px;
    }
 
-   --background-size: calc(100vw / var(--num-grid-cells) - var(--bg-size-offset));
+   --background-size: calc(100vw / var(--num-grid-cells));
 
    background-color: var(--color-surface);
    background-image:
@@ -65,10 +63,10 @@ html {
       calc(var(--background-size) / 4) calc(var(--background-size) / 4),
       calc(var(--background-size) / 4) calc(var(--background-size) / 4);
    background-position:
-      -2px calc(-2px + var(--background-y-offset)),
-      -2px calc(-2px + var(--background-y-offset)),
-      -1px calc(-1px + var(--background-y-offset)),
-      -1px calc(-1px + var(--background-y-offset));
+      -2px -2px,
+      -2px -2px,
+      -1px -1px,
+      -1px -1px;
    scroll-padding-block-start: 10rem;
 
    scrollbar-gutter: stable;

@@ -15,7 +15,11 @@ export function About() {
          <p>
             After that, my first project was a word scramble game. I used hyperlinks, a tiny bit of CSS, and about 30
             HTML pages to accomplish this. When I showed my dad, he said “I think it&apos;s time for JavaScript.” We
-            went to the book store and I picked up “JavaScript for Kids” (I still have it on my bookshelf).
+            went to the book store and I picked up{" "}
+            <a href="https://nostarch.com/javascriptforkids" target="_blank">
+               “JavaScript for Kids”
+            </a>{" "}
+            (I still have it on my bookshelf).
          </p>
          <p>
             Web Development just clicked for me. Everything made sense, and I loved doing it. I knew pretty soon after
@@ -42,8 +46,9 @@ export function About() {
             is critical.
          </p>
          <p>
-            If you want to get in touch with me, you can email me at isaac@isaacmaddox.dev or fill out the form above.
-            Thank you for visiting my site!
+            If you want to get in touch with me, you can email me at{" "}
+            <a href="mailto:isaac@mail.isaacmaddox.dev">isaac@mail.isaacmaddox.dev</a> or fill out the form above. Thank
+            you for visiting my site!
          </p>
       </section>
    );
