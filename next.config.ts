@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
    images: {
       qualities: [100, 75],
    },
+   poweredByHeader: false,
 };
 
 export default nextConfig;

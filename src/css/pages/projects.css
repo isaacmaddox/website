@@ -46,7 +46,8 @@
       --padding-x: 4rem;
 
       text-align: center;
-      padding: var(--padding-y) var(--padding-x);
+      padding-block: var(--padding-y);
+      padding-inline: var(--padding-x);
 
       & > .project-block_ctas {
          display: flex;
