@@ -1,10 +1,13 @@
-import thumbnailPicture from "@/../public/img/projects/tasklist/leading.jpg";
+import collaboratorModalScreenshot from "@/../public/img/projects/tasklist/collaborator_modal_screenshot.png";
+import filterListScreenshot from "@/../public/img/projects/tasklist/filter_list_screenshot.png";
+import homePageScreenshot from "@/../public/img/projects/tasklist/home_page_screenshot.png";
+import listPageScreenshot from "@/../public/img/projects/tasklist/list_page_screenshot.jpg";
 import { Button } from "@/components/button";
+import { Carousel, CarouselSlide } from "@/components/carousel";
 import { Hero } from "@/components/hero";
 import { DownArrowIcon, OpenInNewIcon } from "@/components/icons";
 import "@/css/pages/project-page.css";
 import { Metadata } from "next";
-import Image from "next/image";
 
 export const metadata: Metadata = {
    title: "TaskList | Isaac Maddox",
@@ -32,19 +35,19 @@ export default function FALAFELPage() {
             </Hero.CTAs>
          </Hero>
          <div className="divide">
-            <Button.Link href="#projects" aria-label="Go to main content" size="icon" variant="outline">
+            <Button.Link href="#motivation" aria-label="Go to main content" size="icon" variant="outline">
                <DownArrowIcon />
             </Button.Link>
          </div>
-         <Image
-            src={thumbnailPicture}
-            alt="A screenshot from the TaskList application"
-            className="leading-image"
-            loading="eager"
-         />
-         <section className="container">
-            <h2>Coming soon</h2>
-            <p className="text-center">I will be writing about this project in the near future. Stay tuned!</p>
+         <Carousel>
+            <CarouselSlide src={homePageScreenshot} alt="The home page of the application" />
+            <CarouselSlide src={listPageScreenshot} alt="The list page of the application" />
+            <CarouselSlide src={filterListScreenshot} alt="The list page of the application" />
+            <CarouselSlide src={collaboratorModalScreenshot} alt="The list page of the application" />
+         </Carousel>
+         <section className="container sm">
+            <h2>Coming Soon</h2>
+            <p className="text-lg">I will be writing a piece about this project soon.</p>
          </section>
       </main>
    );

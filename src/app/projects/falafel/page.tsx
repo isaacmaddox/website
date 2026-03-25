@@ -6,7 +6,6 @@ import { Button } from "@/components/button";
 import { Carousel, CarouselSlide } from "@/components/carousel";
 import { Hero } from "@/components/hero";
 import { DownArrowIcon, OpenInNewIcon } from "@/components/icons";
-import "@/css/components/carousel.css";
 import "@/css/pages/project-page.css";
 import { Metadata } from "next";
 
@@ -50,13 +49,8 @@ export default async function FALAFELPage() {
             <CarouselSlide src={teamBuilderPageScreenshot} alt="A screenshot of the Team Builder page from FALAFEL" />
          </Carousel>
          <section className="container sm">
-            <h2>Motivation</h2>
-            <p className="text-lg">Why FALAFEL was created</p>
-            <p>
-               As part of my degree program at The University of West Florida, I had to complete a Capstone course to
-               demonstrate my ability to perform at a professional level. During this course, I was paired with three
-               classmates and we were tasked with creating a full-functional application over the course of a semester.
-            </p>
+            <h2>Coming Soon</h2>
+            <p className="text-lg">I will be writing a piece about this project soon.</p>
          </section>
       </main>
    );

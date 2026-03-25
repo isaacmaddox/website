@@ -2,14 +2,10 @@
 
 import { Button } from "@/components/button";
 import { BackArrowIcon, ForwardArrowIcon } from "@/components/icons";
+import "@/css/components/carousel.css";
 import { useMedia } from "@/lib/hooks/useMedia";
 import Image from "next/image";
 import { Children, CSSProperties, useRef } from "react";
-
-function isIOS() {
-   if (typeof window === "undefined" || typeof navigator === "undefined") return false;
-   return /iPhone|iPad|iPod/i.test(navigator.userAgent || navigator.platform);
-}
 
 export function Carousel({ children }: React.PropsWithChildren) {
    const carouselRef = useRef<HTMLDivElement>(null);
