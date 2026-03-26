@@ -1,12 +1,14 @@
 .image-modal-wrapper {
    position: relative;
    anchor-scope: all;
+   margin-block: 2.5rem;
 
    & > img {
       display: block;
       anchor-name: --article-image;
       cursor: zoom-in;
       transition: border-color 50ms linear;
+      height: auto;
 
       &:hover {
          border-color: var(--color-border-input-focus);

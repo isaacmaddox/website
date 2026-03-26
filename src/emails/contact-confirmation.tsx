@@ -89,7 +89,10 @@ export function ContactConfirmationEmail({ message, topic }: ContactConfirmation
                <Heading as="h2" style={heading}>
                   Your Message
                </Heading>
-               <p style={largeParagraph}>Topic: {topic}</p>
+               <p style={largeParagraph}>
+                  Topic: {topic.at(0)?.toUpperCase()}
+                  {topic.substring(1)}
+               </p>
                <div style={messageContainer}>{message}</div>
             </Container>
          </Body>

@@ -36,6 +36,9 @@ export function ContactForm() {
          <div className="form-field">
             <label htmlFor="topic">Topic</label>
             <select name="topic" id="topic" defaultValue={formState?.fields.topic}>
+               <option value="na" disabled>
+                  Select One
+               </option>
                <option value="idea">Project Idea</option>
                <option value="opportunity">Opportunity</option>
                <option value="general">General Message</option>
