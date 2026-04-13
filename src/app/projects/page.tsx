@@ -31,7 +31,7 @@ export default function ProjectsPage() {
                liveURL="https://tasklist.isaacmaddox.dev"
                href="/projects/tasklist"
                githubURL="https://github.com/isaacmaddox/wh-tasklist"
-               image="/img/projects/tasklist/thumbnail.jpg"
+               image="/img/projects/tasklist/list_page_screenshot.jpg"
             />
             <ProjectBlock
                reverse
