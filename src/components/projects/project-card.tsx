@@ -7,7 +7,7 @@ interface ProjectBlockProps {
    description: string;
    reverse?: boolean;
    image: string;
-   liveURL: string;
+   liveURL?: string;
    githubURL: string;
    href: string;
 }
@@ -21,11 +21,13 @@ export function ProjectBlock({ title, description, reverse, image, liveURL, gith
             <h2>{title}</h2>
             <p>{description}</p>
             <ul className="project-block_ctas" role="list">
-               <li>
-                  <Button.Link href={liveURL} target="_blank">
-                     View Project
-                  </Button.Link>
-               </li>
+               {liveURL && (
+                  <li>
+                     <Button.Link href={liveURL} target="_blank">
+                        View Project
+                     </Button.Link>
+                  </li>
+               )}
                <li>
                   <Button.Link href={href} variant="outline" aria-label={`Read more about ${title}`}>
                      Read More

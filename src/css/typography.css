@@ -184,6 +184,10 @@ section > h2 + p.text-lg + p {
    text-align: center;
 }
 
+.italic {
+   font-style: italic;
+}
+
 code,
 code * {
    font-family: var(--ff-code);

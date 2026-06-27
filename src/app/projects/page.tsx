@@ -37,7 +37,6 @@ export default function ProjectsPage() {
                reverse
                title="FALAFEL"
                description="A student relationship manager created for one of my professors who had issues pairing students."
-               liveURL="https://falafel.isaacmaddox.dev"
                href="/projects/falafel"
                githubURL="https://github.com/isaacmaddox/falafel"
                image="/img/projects/falafel/thumbnail.jpg"

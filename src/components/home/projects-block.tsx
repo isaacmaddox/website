@@ -33,10 +33,10 @@ export function ProjectsBlock() {
             style="count">
             <Card.CTAs>
                <Button.Link
-                  href="https://falafel.isaacmaddox.dev"
+                  href="https://github.com/isaacmaddox/falafel"
                   target="_blank"
                   title="Visit FALAFEL in your browser">
-                  View Project
+                  View on GitHub
                   <OpenInNewIcon />
                </Button.Link>
                <Button.Link variant="outline" href="/projects/falafel">

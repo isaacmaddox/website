@@ -24,6 +24,27 @@ export const metadata: Metadata = {
    title: "Isaac Maddox | Web Developer and Designer",
    description:
       "Hi! I'm Isaac Maddox, a web developer and designer based out of Florida. I am a recent college graduate with a major in Software Design & Development. I have a deep passion for computer programming, and especially enjoy web development.",
+   authors: [
+      {
+         name: "Isaac Maddox",
+      },
+   ],
+   keywords: [
+      "web devleoper",
+      "programming",
+      "frontend",
+      "front end",
+      "html",
+      "css",
+      "javascript",
+      "react",
+      "next",
+      "vite",
+      "typescript",
+      "supabase",
+      "postgres",
+      "postgresql",
+   ],
 };
 
 export default function RootLayout({

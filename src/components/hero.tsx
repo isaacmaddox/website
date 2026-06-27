@@ -14,6 +14,10 @@ Hero.Subtitle = function HeroSubtitle({ className, ...props }: ComponentProps<"p
    return <p className={cn(className, "text-lg")} {...props} />;
 };
 
+Hero.Note = function HeroNote({ className, ...props }: ComponentProps<"p">) {
+   return <p className={cn(className, "text-center italic")} {...props} />;
+};
+
 Hero.CTAs = function HeroCTAs({ children, className, ...props }: ComponentProps<"ul">) {
    return (
       <ul className={cn(className, "hero_ctas")} {...props} role="list">

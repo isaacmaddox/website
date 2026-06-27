@@ -5,7 +5,7 @@ import uploadStudentsModalScreenshot from "@/../public/img/projects/falafel/uplo
 import { Button } from "@/components/button";
 import { Carousel, CarouselSlide } from "@/components/carousel";
 import { Hero } from "@/components/hero";
-import { DownArrowIcon, OpenInNewIcon } from "@/components/icons";
+import { DownArrowIcon } from "@/components/icons";
 import "@/css/pages/project-page.css";
 import { Metadata } from "next";
 
@@ -24,11 +24,8 @@ export default async function FALAFELPage() {
                FALAFEL is a CRM-like program that was designed to help one of my professors pair students into teams for
                his courses.
             </Hero.Subtitle>
+            <Hero.Note>FALAFEL is no longer running live due to our Supabase project pausing permanently.</Hero.Note>
             <Hero.CTAs>
-               <Button.Link href="https://falafel.isaacmaddox.dev" target="_blank" variant="primary" size="lg">
-                  View Live Project
-                  <OpenInNewIcon />
-               </Button.Link>
                <Button.Link href="https://github.com/isaacmaddox/falafel" target="_blank" size="lg">
                   View on GitHub
                </Button.Link>

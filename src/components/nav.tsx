@@ -42,7 +42,7 @@ export function GlobalNav() {
                      </Link>
                   </li>
                   <li>
-                     <Link href="/IM_Resume.pdf" onClick={closeNav} download>
+                     <Link href="/Isaac Maddox.pdf" onClick={closeNav} download>
                         Resume
                      </Link>
                   </li>
