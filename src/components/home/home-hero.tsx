@@ -17,7 +17,7 @@ export function HomeHero() {
          </p>
          <ul className="home-hero_ctas" role="list">
             <li>
-               <Button.Link href="/IM_Resume.pdf" variant="primary" size="lg" download>
+               <Button.Link href="/Isaac Maddox.pdf" variant="primary" size="lg" download>
                   <svg
                      xmlns="http://www.w3.org/2000/svg"
                      height="24px"
