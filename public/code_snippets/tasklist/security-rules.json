@@ -1,0 +1,48 @@
+{
+   "rules": {
+      "lists": {
+         ".read": true,
+         ".indexOn": [
+            "owner_id",
+            // rest of this list omitted for privacy protection
+         ],
+         "$listId": {
+            // Write to a list if:
+            // 
+            // You are logged in
+            // 
+            // AND
+            // 
+            // (
+            //   (
+            //     You are making a new list
+            //      
+            //     AND
+            //     
+            //     You are making a list with 'owner_id' equal to your UID
+            //   )
+            // 
+            //   OR
+            //  
+            //   The list's 'owner_id' is your UID
+            // )
+            ".write": "auth.uid !== null && ( ( !data.exists() && newData.child('owner_id').val() === auth.uid ) || data.child('owner_id').val() === auth.uid )",
+            "tasks": {
+               // Write to tasks if:
+               //
+               // You are logged in 
+               //
+               // AND
+               //
+               // Your UID is in the list's 'shares' property
+               ".write": "auth.uid !== null && ( data.parent().child('shares').child(auth.token.email.replace('.', ',')).val() === true )"
+            },
+            "shares": {
+               "$emailKey": {
+                  ".write": "auth.uid !== null && ( data.parent().parent().child('owner_id').val() === auth.uid || ( data.parent().child(auth.token.email.replace('.', ',')).val() === true && newData.val() === true && data.parent().parent().child('owner_id').val() !== auth.uid ) )",
+               }
+            }
+         }
+      }
+   }
+}

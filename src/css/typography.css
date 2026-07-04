@@ -171,8 +171,14 @@ section > .text-lg {
    }
 }
 
+section.text-start > :is(h2, h3, h4, .text-lg) {
+   text-wrap: pretty;
+   text-align: start;
+   max-width: unset;
+}
+
 section > h2 + p.text-lg + p {
-   margin-block-start: 3rem;
+   margin-block-start: 2rem;
 }
 
 .text-danger,

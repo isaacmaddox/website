@@ -66,3 +66,10 @@ figure {
       font-style: italic;
    }
 }
+
+blockquote {
+   margin-block: 2rem;
+   padding-block: 0.5rem;
+   padding-inline-start: 1.5rem;
+   border-inline-start: 2px solid var(--color-border-on-surface);
+}
