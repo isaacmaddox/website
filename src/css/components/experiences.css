@@ -33,11 +33,11 @@
                position-anchor: --start-date;
                width: 1px;
                inset-inline: anchor(center);
-               inset-block: calc(anchor(bottom) + 1.5rem) calc(anchor(top --end-date) + 1.5rem);
+               inset-block: calc(anchor(bottom --end-date) + 1.5rem) calc(anchor(top) + 1.5rem);
             }
 
             &:not(:has(.position_end-date))::before {
-               inset-block-end: 0;
+               inset-block-start: 0;
             }
          }
 
@@ -110,16 +110,16 @@
          }
 
          .position_start-date {
-            grid-row: 1;
+            grid-row: 2;
             anchor-name: --start-date;
-            align-self: center;
+            align-self: end;
             animation-range: 15vh 25vh;
          }
 
          .position_end-date {
-            grid-row: 2;
+            grid-row: 1;
             anchor-name: --end-date;
-            align-self: end;
+            align-self: center;
             animation-range: 25vh 50vh;
          }
 

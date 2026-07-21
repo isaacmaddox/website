@@ -21,7 +21,7 @@ export function ProjectsBlock() {
                   View Project
                   <OpenInNewIcon />
                </Button.Link>
-               <Button.Link variant="outline" href="/projects/tasklist">
+               <Button.Link variant="outline" href="/projects/tasklist" title="Read more about TaskList">
                   Read More
                </Button.Link>
             </Card.CTAs>
@@ -39,7 +39,7 @@ export function ProjectsBlock() {
                   View on GitHub
                   <OpenInNewIcon />
                </Button.Link>
-               <Button.Link variant="outline" href="/projects/falafel">
+               <Button.Link variant="outline" href="/projects/falafel" title="Read more about FALAFEL">
                   Read More
                </Button.Link>
             </Card.CTAs>
@@ -57,7 +57,10 @@ export function ProjectsBlock() {
                   View Project
                   <OpenInNewIcon />
                </Button.Link>
-               <Button.Link variant="outline" href="/projects/barricade">
+               <Button.Link
+                  variant="outline"
+                  href="/projects/barricade"
+                  title="Read more about Barricade Lawn and Landscape">
                   Read More
                </Button.Link>
             </Card.CTAs>

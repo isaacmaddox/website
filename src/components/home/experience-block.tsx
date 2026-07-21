@@ -10,47 +10,18 @@ export function ExperienceBlock() {
          </p>
          <div className="work-experience">
             <div className="work-experience_experience">
-               <h3>Air Force Research Laboratory</h3>
-               <Position
-                  title="Intern"
-                  startDateText="May 2022"
-                  startDateTimeStamp="2022-05-01"
-                  endDateText="Aug. 2022"
-                  endDateTimeStamp="2022-08-01">
-                  <p>
-                     As a part of the{" "}
-                     <a href="https://afrlscholars.usra.edu/" target="_blank">
-                        Air Force Research Laboratory Scholars program
-                     </a>
-                     , I worked with a team respobsible for LiDAR research. I rewrote some existing applications,
-                     migrating them from Python to MATLAB, using the MATLAB App Designer. I created an app to interact
-                     with a FLIR camera and a lens rotator, to capture and store photos for research. I also built an
-                     app that was responsible for managing the power state of a laser, as well as the rotation state of
-                     multiple polarized lenses. Lastly, I worked closely with Dr. Jarrod Brown to create an application
-                     that used serial communications to control a QPT 90 Positioner.{" "}
-                     <a href="https://github.com/isaacmaddox/AFRL_Summer_Internship" target="_blank">
-                        You can view the work that I completed in this position here
-                     </a>
-                     .
-                  </p>
-               </Position>
-            </div>
-            <div className="work-experience_experience">
                <h3>Ducks Unlimited</h3>
-               <Position title="Web Development Intern" startDateText="Jan. 2023" startDateTimeStamp="2023-01-13">
+               <Position
+                  title="User Experience Specialist"
+                  startDateText="July 2026"
+                  startDateTimeStamp="2026-07-26"
+                  isPresent>
                   <p>
-                     In January of 2023, I was brought on as an intern to the web development team to assist in a full
-                     rewrite of the website, migrating to a new CMS. During this internship, I learned many invaluable
-                     skills that will undoubtedly help me throughout my career. I learned how to effectively use Git and
-                     GitHub to work collaboratively on a project, how a CMS works, Java Server Pages, and gained
-                     professional experience using CSS (SCSS) and JavaScript.
+                     In July of 2026, I was given an internal promotion as a result of the work that I completed in the
+                     previous years as a User Experience Generalist.
                   </p>
                </Position>
-               <Position
-                  title="User Experience Generalist"
-                  startDateText="July 2023"
-                  startDateTimeStamp="2023-07-01"
-                  isPresent>
+               <Position title="User Experience Generalist" startDateText="July 2023" startDateTimeStamp="2023-07-01">
                   <p>
                      As a result of the work completed for the MARCOMMS team during my time as a Web Development Intern,
                      I was hired as a User Experience Generalist at the same company. In this role, I am responsible for
@@ -79,6 +50,15 @@ export function ExperienceBlock() {
                      ).
                   </p>
                </Position>
+               <Position title="Web Development Intern" startDateText="Jan. 2023" startDateTimeStamp="2023-01-13">
+                  <p>
+                     In January of 2023, I was brought on as an intern to the web development team to assist in a full
+                     rewrite of the website, migrating to a new CMS. During this internship, I learned many invaluable
+                     skills that will undoubtedly help me throughout my career. I learned how to effectively use Git and
+                     GitHub to work collaboratively on a project, how a CMS works, Java Server Pages, and gained
+                     professional experience using CSS (SCSS) and JavaScript.
+                  </p>
+               </Position>
             </div>
             <div className="work-experience_experience">
                <h3>University of West Florida</h3>
@@ -92,6 +72,32 @@ export function ExperienceBlock() {
                      As a teacher&apos;s assistant, I worked with Dr. Evorell L. Fridge, grading student assignments and
                      creating some assignments as well. I was responsible for creating an introductory Python project,
                      and planning and building the semester project that the students would complete.
+                  </p>
+               </Position>
+            </div>
+            <div className="work-experience_experience">
+               <h3>Air Force Research Laboratory</h3>
+               <Position
+                  title="Intern"
+                  startDateText="May 2022"
+                  startDateTimeStamp="2022-05-01"
+                  endDateText="Aug. 2022"
+                  endDateTimeStamp="2022-08-01">
+                  <p>
+                     As a part of the{" "}
+                     <a href="https://afrlscholars.usra.edu/" target="_blank">
+                        Air Force Research Laboratory Scholars program
+                     </a>
+                     , I worked with a team respobsible for LiDAR research. I rewrote some existing applications,
+                     migrating them from Python to MATLAB, using the MATLAB App Designer. I created an app to interact
+                     with a FLIR camera and a lens rotator, to capture and store photos for research. I also built an
+                     app that was responsible for managing the power state of a laser, as well as the rotation state of
+                     multiple polarized lenses. Lastly, I worked closely with Dr. Jarrod Brown to create an application
+                     that used serial communications to control a QPT 90 Positioner.{" "}
+                     <a href="https://github.com/isaacmaddox/AFRL_Summer_Internship" target="_blank">
+                        You can view the work that I completed in this position here
+                     </a>
+                     .
                   </p>
                </Position>
             </div>
